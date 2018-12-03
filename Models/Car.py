@@ -1,18 +1,21 @@
 class Car(object):
-    def __init__(self, year, kilometers, transmission, color, CO2, seats, 
-    plate_number, insurance, fuel_type, car_size, brand, highlander = False):
+    def __init__(self, brand, transmission, seats, color, doors, price, suitcases, fuel_type, year, kilometers="", CO2="",  
+    plate_number="", insurance="", car_size="", highlander = False):
+        self.brand = brand
+        self.transmission = transmission
+        self.seats = seats
+        self.color = color
+        self.doors = doors
+        self.price = price
         self.year = year
         self.kilometers = kilometers
-        self.transmission = transmission
-        self.color = color
         self.CO2 = CO2
-        self.seats = seats
         self.plate_number = plate_number
         self.insurance = insurance
         self.fuel_type = fuel_type
         self.car_size = car_size
-        self.brand = brand
         self.highlander = highlander
+        self.suitcases = suitcases
 
     def __str__(self):
         pass
@@ -22,6 +25,9 @@ class Car(object):
 
     def get_year(self):
         return self.year
+
+    def get_doors(self):
+        return self.doors
 
     def get_kilometers(self):
         return self.kilometers
