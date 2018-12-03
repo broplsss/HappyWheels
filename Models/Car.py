@@ -1,6 +1,6 @@
 class Car(object):
     def __init__(self, year, kilometers, transmission, color, CO2, seats, 
-    plate_number, insurance, fuel_type, car_type, brand, highlander = False):
+    plate_number, insurance, fuel_type, car_size, brand, highlander = False):
         self.year = year
         self.kilometers = kilometers
         self.transmission = transmission
@@ -10,7 +10,7 @@ class Car(object):
         self.plate_number = plate_number
         self.insurance = insurance
         self.fuel_type = fuel_type
-        self.car_type = car_type
+        self.car_size = car_size
         self.brand = brand
         self.highlander = highlander
 
@@ -47,8 +47,8 @@ class Car(object):
     def get_fuel_type(self):
         return self.fuel_type
 
-    def get_car_type(self): # Týpa bíls; small, medium, SUV(large) / Verdflokkur basicly
-        return self.car_type
+    def get_car_size(self): # Stærð bíls; small, medium, SUV(large) / Verdflokkur basicly
+        return self.car_size
 
     def get_brand(self):    # Heiti bíls (Frekar name?)
         return self.brand

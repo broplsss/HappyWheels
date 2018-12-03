@@ -1,4 +1,8 @@
+from UI.Main_menu import Main_menu
+
 def main():
-    pass
+    while True:
+        ui = Main_menu()
+        ui.print_main_menu()
     
 main()

@@ -4,12 +4,6 @@ class Person(object):
         self.phone = phone
         self.email = email
 
-    def __str__(self):
-        return "{},{},{}".format(self.name, self.phone, self.email)
-    
-    def __repr__(self):
-        return self.__str__()
-
     def get_name(self):
         return self.name
     
