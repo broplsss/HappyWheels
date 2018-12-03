@@ -20,12 +20,12 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
         print("2. Keflavík")
         print("3. Akureyri")
 
-        choice = input("Choose a location: ").lower()
+        num = input("Choose a location: ").lower()
         # Val = Staðsetning
         
-        val = Rent_a_car_service()
-        val.set_location(choice)
-        self.location = val.get_location()
+        choice = Rent_a_car_service()
+        choice.set_location(num)
+        self.location = choice.get_location()
 
     def print_pickup_menu(self):
         os.system('cls||clear')
@@ -34,3 +34,16 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
         print("\t~Date and time~")
         print("\tPage 2 of 8\n")
         pick_up_date = input("Enter pick up date(mm/dd/yy): ")
+        pick_up_time = input("Enter pick up time(hh): ")
+        drop_off_date = input("Enter drop off date(mm/dd/yy): ")
+        drop_off_time = input("Enter drop off time(hh): ")
+
+        combined_loc_date_time = Rent_a_car_service()   # loc_date_time_info er location, date, og time upplýsingarnar
+        combined_loc_date_time.get_combined_loc_date_time(self.location, pick_up_date, pick_up_time,
+        drop_off_date, drop_off_time)
+
+
+    def print_car_size_menu(self):
+        os.system('cls||clear')
+        self.header.print_header_nav()
+        print("Pick up location:",self.location)

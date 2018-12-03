@@ -21,6 +21,7 @@ class Main_menu(object):
             Rent_car = Rent_a_car_process()
             Rent_car.print_location_menu()
             Rent_car.print_pickup_menu()
+            Rent_car.print_car_size_menu()
         elif action == "2":
             pass
 
