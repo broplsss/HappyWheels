@@ -24,7 +24,6 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
             if wrong_input:
                 print("Wrong input\tEnter a number from 1 to 3")
             loc_choice = input("Choose a location: ").lower()
-            check_input_p_h_x(loc_choice)
 
             choice = Rent_a_car_service()
             choice.set_location(loc_choice) # Breytir choice í rétta staðsetningu

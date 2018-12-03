@@ -15,14 +15,21 @@ class Main_menu(object):
         print("2. Continue as a Salesman")
         print("3. Cancel an existing order")
 
-        action = input("Choose an option: ").lower()
+        choice = input("Choose an option: ").lower()
         
-        if action == "1":
+        if choice == "1":
+            stage = 0
             Rent_car = Rent_a_car_process()
-            Rent_car.print_location_menu()
-            Rent_car.print_pickup_menu()
-            Rent_car.print_car_size_menu()
-        elif action == "2":
+            if stage == 0:
+                Rent_car.print_location_menu()
+                stage += 1
+            if stage == 1:
+                Rent_car.print_pickup_menu()
+                stage += 1
+            if stage == 2:
+                Rent_car.print_car_size_menu()
+                stage += 1
+        elif choice == "2":
             pass
 
 
