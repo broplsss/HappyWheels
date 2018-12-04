@@ -41,18 +41,17 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
         pick_up_time = input("Enter pick up time(hh): ")
         drop_off_date = input("Enter drop off date(mm/dd/yy): ")
         drop_off_time = input("Enter drop off time(hh): ")
-
+        date_time_list = [pick_up_date, pick_up_time, drop_off_date, drop_off_time]
         combined_loc_date_time = Rent_a_car_service()   # loc_date_time_info er location, date, og time upplýsingarnar
-        self.text = combined_loc_date_time.get_combined_loc_date_time(self.location, pick_up_date, pick_up_time,
-        drop_off_date, drop_off_time)
+        self.text = combined_loc_date_time.get_combined_loc_date_time(self.location, date_time_list)
 
     def print_car_size_menu(self):
         os.system('cls||clear')
-        print(self.text)
         car_choice = ""
-        car_size = ""
+        car_size = ""   # Ónotað
         while car_choice not in ("1", "2", "3"):
             self.header.print_header_nav()
+            print(self.text)
             print("Pick up location:",self.location)
             print("\t~ Pick a car ~")
             print("\tPage 3 of 8\n")

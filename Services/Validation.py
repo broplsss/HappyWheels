@@ -17,3 +17,6 @@ class Validation():
             return True
         else:
             return False
+
+    def check_valid_date(self, pick_date, pick_time, drop_date, drop_time):
+        pass
