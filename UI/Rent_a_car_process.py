@@ -1,13 +1,13 @@
 from UI.Header_nav import Header_nav
 from Services.Rent_a_car_service import Rent_a_car_service
+from Services.Validation import Validation
 import os
 
 class Rent_a_car_process(Header_nav, Rent_a_car_service):
     def __init__(self):
-        # Kalla á Service klasann
-        # Dæmi um það:
-        # self.__video_service = VideoService()
+        self.__choice = Rent_a_car_service()
         self.header = Header_nav()
+        self.__datetime = Validation()
 
     ##### PICKUP LOCATION MENU #####
     def print_location_menu(self):
@@ -26,9 +26,8 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
                 print("Wrong input\tEnter a number from 1 to 3")
             loc_choice = input("Choose a location: ").lower()
 
-            choice = Rent_a_car_service()
-            choice.set_location(loc_choice) # Breytir choice í rétta staðsetningu
-            self.location = choice.get_location()   # Rétt staðsetning kominn
+            self.__choice.set_location(loc_choice) # Breytir choice í rétta staðsetningu
+            self.location = self.__choice.get_location()   # Rétt staðsetning kominn
             if not self.location:
                 wrong_input = True
 
@@ -44,17 +43,17 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
         while stage < 4:
             if stage == 0:
                 pick_up_date = input("Enter pick up date(mm/dd/yyyy): ")
-                stage = check_valid_date(pick_up_date, stage)
+                stage = self.__datetime.check_valid_date(pick_up_date, stage)
             if stage == 1:    
                 pick_up_time = input("Enter pick up time(hh): ")
-                stage = check_valid_time(pick_up_time, stage)
+                stage = self.__datetime.check_valid_time(pick_up_time, stage)
             if stage == 2:
                 drop_off_date = input("Enter drop off date(mm/dd/yyyy): ")
-                stage = check_valid_date(drop_off_date, stage)
-                stage = check_different_dates(pick_up_date, drop_off_date, stage)  # Checks if dates are the same or not
+                stage = self.__datetime.check_valid_date(drop_off_date, stage)
+                stage = self.__datetime.check_different_dates(pick_up_date, drop_off_date, stage)  # Checks if dates are the same or not
             if stage == 3:
                 drop_off_time = input("Enter drop off time(hh): ")
-                stage = check_valid_time(drop_off_time, stage)
+                stage = self.__datetime.check_valid_time(drop_off_time, stage)
         #########################################
         date_time_list = [pick_up_date, pick_up_time, drop_off_date, drop_off_time]
         combined_loc_date_time = Rent_a_car_service()   # loc_date_time_info er location, date, og time upplýsingarnar
