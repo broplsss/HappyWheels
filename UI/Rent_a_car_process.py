@@ -9,6 +9,7 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
         # self.__video_service = VideoService()
         self.header = Header_nav()
 
+    ##### PICKUP LOCATION MENU #####
     def print_location_menu(self):
         self.location = ""
         wrong_input = False
@@ -31,6 +32,7 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
             if not self.location:
                 wrong_input = True
 
+    ##### CHOOSE DATE AND TIME MENU #####
     def print_pickup_menu(self):
         os.system('cls||clear')
         self.header.print_header_nav()
@@ -45,6 +47,7 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
         combined_loc_date_time = Rent_a_car_service()   # loc_date_time_info er location, date, og time upplýsingarnar
         self.text = combined_loc_date_time.get_combined_loc_date_time(self.location, date_time_list)
 
+    ##### CHOOSE CAR SIZE AND BRAND MENU #####
     def print_car_size_menu(self):
         os.system('cls||clear')
         car_choice = ""

@@ -1,4 +1,6 @@
 from UI.Rent_a_car_process import Rent_a_car_process
+from UI.Log_in_process import Log_in_process
+from UI.Salesman_menu import Salesman_menu
 
 class Main_menu(object):
     def __init__(self):
@@ -30,6 +32,11 @@ class Main_menu(object):
                 Rent_car.print_car_size_menu()
                 stage += 1
         elif choice == "2":
-            pass
+            log_in = Log_in_process()
+            log_in.log_in()
+            log_in.pw_check()
+
+            salesman_menu = Salesman_menu()
+            salesman_menu.print_menu()
 
 

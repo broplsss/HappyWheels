@@ -6,4 +6,3 @@ def main():
         ui.print_main_menu()
     
 main()
-
