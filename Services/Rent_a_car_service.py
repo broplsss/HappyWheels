@@ -2,8 +2,9 @@ from Services.Validation import Validation
 
 class Rent_a_car_service(object):
 
+    ##### Return correct locaton #####
     def set_location(self, choice):
-        loc_validation = Validation()
+        loc_validation = Validation()   # Checks if user input P, H or X
         if loc_validation.check_valid_loc(choice):  # Er true ef choice var 1, 2 eða 3
             if choice == "1":
                 self.location = "Reykjavík"
@@ -11,7 +12,7 @@ class Rent_a_car_service(object):
                 self.location = "Keflavík"
             elif choice == "3":
                 self.location = "Akureyri"
-        else:
+        else:       # Ef notandi valdi ekki 1, 2 eða 3
             print("Invalid input!")
             self.location = ""
 

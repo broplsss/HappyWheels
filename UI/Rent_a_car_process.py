@@ -39,10 +39,23 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
         print("Pick up location: {}".format(self.location))  # Location = Rvk
         print("\t~ Date and time ~")
         print("\tPage 2 of 8\n")
-        pick_up_date = input("Enter pick up date(mm/dd/yy): ")
-        pick_up_time = input("Enter pick up time(hh): ")
-        drop_off_date = input("Enter drop off date(mm/dd/yy): ")
-        drop_off_time = input("Enter drop off time(hh): ")
+        ########### Implementation 
+        stage = 0   # On what stage of the progress the user is on
+        while stage < 4:
+            if stage == 0:
+                pick_up_date = input("Enter pick up date(mm/dd/yyyy): ")
+                stage = check_valid_date(pick_up_date, stage)
+            if stage == 1:    
+                pick_up_time = input("Enter pick up time(hh): ")
+                stage = check_valid_time(pick_up_time, stage)
+            if stage == 2:
+                drop_off_date = input("Enter drop off date(mm/dd/yyyy): ")
+                stage = check_valid_date(drop_off_date, stage)
+                stage = check_different_dates(pick_up_date, drop_off_date, stage)  # Checks if dates are the same or not
+            if stage == 3:
+                drop_off_time = input("Enter drop off time(hh): ")
+                stage = check_valid_time(drop_off_time, stage)
+        #########################################
         date_time_list = [pick_up_date, pick_up_time, drop_off_date, drop_off_time]
         combined_loc_date_time = Rent_a_car_service()   # loc_date_time_info er location, date, og time upplýsingarnar
         self.text = combined_loc_date_time.get_combined_loc_date_time(self.location, date_time_list)
