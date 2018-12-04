@@ -4,11 +4,7 @@ import os
 
 class Salesman_menu(Header_nav):
     def __init__(self):
-        # Kalla á Service klasann
-        # Dæmi um það:
-        # self.__video_service = VideoService()
         self.header = Header_nav()
-        pass
 
     def print_menu(self):
         os.system('cls||clear')
@@ -28,3 +24,4 @@ class Salesman_menu(Header_nav):
             Rent_car = Rent_a_car_process()
             Rent_car.print_location_menu()
             Rent_car.print_pickup_menu()
+        if choice == "4":

@@ -33,13 +33,12 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
 
     ##### CHOOSE DATE AND TIME MENU #####
     def print_pickup_menu(self):
+        stage = 0   # On what stage of the progress the user is on
         os.system('cls||clear')
         self.header.print_header_nav()
         print("Pick up location: {}".format(self.location))  # Location = Rvk
         print("\t~ Date and time ~")
-        print("\tPage 2 of 8\n")
-        ########### Implementation 
-        stage = 0   # On what stage of the progress the user is on
+        print("\tPage 2 of 8\n") 
         while stage < 4:
             if stage == 0:
                 pick_up_date = input("Enter pick up date(mm/dd/yyyy): ")
@@ -54,7 +53,8 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
             if stage == 3:
                 drop_off_time = input("Enter drop off time(hh): ")
                 stage = self.__datetime.check_valid_time(drop_off_time, stage)
-        #########################################
+
+
         date_time_list = [pick_up_date, pick_up_time, drop_off_date, drop_off_time]
         combined_loc_date_time = Rent_a_car_service()   # loc_date_time_info er location, date, og time upplýsingarnar
         self.text = combined_loc_date_time.get_combined_loc_date_time(self.location, date_time_list)
