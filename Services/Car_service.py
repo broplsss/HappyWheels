@@ -1,11 +1,13 @@
 from Models.Car import Car
+from Repository.Car_repo import Car_repo
 import os
 
 class Car_service(Car):
     def __init__(self):
         self.car_info = ["Plate_number","Car","Transmission","Seats","Color","Doors","Suit_cases", \
         "Fuel_type","Year","Price","Insurance", "Kilometers", "CO2", "Highlander"]
-        self.car_list = []      
+        self.car_list = []
+        self.car_write = Car_repo()
 
     def car_main_info_to_list(self):
         for info in self.car_info[:11]:
@@ -32,3 +34,6 @@ class Car_service(Car):
     def print_new_car_info(self):
         for i in range(len(self.car_list)):
             print("{}: {}".format(self.car_info[i], self.car_list[i]))
+
+    def add_car_to_repo(self):
+        self.car_write.write_to_file(self.car_list)

@@ -1,5 +1,6 @@
 from UI.Header_nav import Header_nav
 from Services.Car_service import Car_service
+from Models.Car import Car
 import os
 
 class Car_information_process():
@@ -19,7 +20,10 @@ class Car_information_process():
         # Confirmation
         self.new_car.print_new_car_info()
         confirmation = input("Do you want to confirm this information and submit the car?: (y/n)")
-        if 
+        if confirmation == "y":
+            self.new_car.add_car_to_repo()
+        else:
+            pass
 
     def print_car_information_menu(self):
         os.system('cls||clear')

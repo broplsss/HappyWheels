@@ -6,11 +6,9 @@ class Car_repo(Car):
         pass
 
     # Skrifa í
-    def write_to_file():
-        with open("Book1.csv", "a+", newline='') as file2:
-            csv_writer = csv.writer(file2)
-            new_car_info = get_new_car(Headers)
-
+    def write_to_file(self, new_car_info):
+        with open("./Data/Cars.csv", "a+", newline='') as cars_data:
+            csv_writer = csv.writer(cars_data)
             csv_writer.writerow(new_car_info)
 
     # Lesa úr
