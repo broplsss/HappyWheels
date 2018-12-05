@@ -12,10 +12,13 @@ class Car_repo(Car):
             csv_writer.writerow(new_car_info)
 
     # Lesa úr
-    def read_file(self):
-        with open("Book1.csv", "r") as file1:
-            csv_reader = csv.reader(file1)
+    def read_car_data(self):
+        with open("./Data/Cars.csv", "r") as cars_data:
+            csv_reader = csv.reader(cars_data)
             next(csv_reader)
+            car_info = []
             for line in csv_reader:
-                print(line)
-        
+                car_info.append(line)
+            
+        return car_info
+    

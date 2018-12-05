@@ -25,6 +25,6 @@ class Salesman_menu(Header_nav):
         if choice == "1":
             self.Rent_car.print_location_menu()
             self.Rent_car.print_pickup_menu()
-        if choice == "4":
+        elif choice == "4":
             self.Car_info.print_car_information_menu()
             self.Car_info.print_add_car_menu()
