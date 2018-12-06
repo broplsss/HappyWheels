@@ -19,6 +19,7 @@ class Main_menu(object):
 
         choice = input("Choose an option: ").lower()
         
+        
         if choice == "1":
             stage = 0
             Rent_car = Rent_a_car_process()

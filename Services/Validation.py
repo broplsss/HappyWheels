@@ -60,4 +60,18 @@ class Validation():
     
         return stage
         ##### END #####
+
+    def check_size_option(self,choice):
+        if choice in ["a", "b", "c"]:
+            return choice
+        else:
+            return ""
+
+    def check_car_option(self,car_input,stage):
+        if car_input in ["1","2","3","a","b","c"]:
+            stage = 1
+            return car_input, stage
+        else:
+            stage = 0
+            return "", stage
         

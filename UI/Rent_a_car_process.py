@@ -8,6 +8,7 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
         self.__choice = Rent_a_car_service()
         self.header = Header_nav()
         self.__datetime = Validation()
+        self.car_choice = Rent_a_car_service()
 
     ##### PICKUP LOCATION MENU #####
     def print_location_menu(self):
@@ -61,30 +62,34 @@ class Rent_a_car_process(Header_nav, Rent_a_car_service):
 
     ##### CHOOSE CAR SIZE AND BRAND MENU #####
     def print_car_size_menu(self):
-        os.system('cls||clear')
         car_choice = ""
-        car_size = ""   # Ónotað
+        car_size = ""
+        valid = 0
         while car_choice not in ("1", "2", "3"):
+            os.system('cls||clear')
             self.header.print_header_nav()
             print(self.text)
-            print("Pick up location:",self.location)
             print("\t~ Pick a car ~")
             print("\tPage 3 of 8\n")
             print("A. Small cars (from X kr. to Y kr.") # Hér er hægt að vera búinn að vera með breytu
-            if car_choice == "a":
+            if car_size == "a":
                 print("\t\tCar 1") # Get car #1 and print price
                 print("\t\tCar 2") # Get car #2 and print price
                 print("\t\tCar 3") # Get car #3 and print price
                 
             print("B. Medium cars (from X kr. to Y kr.")    # sem eru cheapest og most expensive bílar
-            if car_choice == "b":
+            if car_size == "b":
                 print("\t\tCar 1") # Get car #1 and print price
                 print("\t\tCar 2") # Get car #2 and print price
                 print("\t\tCar 3") # Get car #3 and print price
+
             print("C. SUV (from X kr. to Y kr.")
-            if car_choice == "c":
+            if car_size == "c":
                 print("\t\tCar 1") # Get car #1 and print price
                 print("\t\tCar 2") # Get car #2 and print price
                 print("\t\tCar 3") # Get car #3 and print price
+            
+            if valid == 1:
+                print("Invalid input")
         
-            car_choice = input("Choose the type of your car: ").lower()
+            car_size, car_choice, valid = self.car_choice.get_size_and_car(car_size, car_choice, valid)

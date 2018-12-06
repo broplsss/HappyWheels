@@ -29,6 +29,26 @@ class Rent_a_car_service(object):
         date_time_list[1], date_time_list[2], date_time_list[3])
     ##### END #####
 
+    def get_size_and_car(self,car_size, car_choice, valid):
+        self.car_size = Validation()
+        self.car_choice = Validation()
+
+        if car_size in ["a","b","c"]:
+            valid = 0
+            car_choice = input("Pick a car: ").lower()
+            car_choice, valid = self.car_choice.check_car_option(car_choice,valid)
+
+        if car_size not in ["a","b","c"]:
+            car_size = input("Choose the type of your car: ").lower()
+
+        if car_choice in ["a", "b", "c"]:
+            car_size = car_choice
+        
+        if self.car_size.check_size_option(car_size) == "":
+            valid = 1 
+        
+        return car_size, car_choice, valid
+
         
 
 
